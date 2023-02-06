@@ -9,7 +9,12 @@ import java.util.logging.Logger;
 @Controller("/pokemon")
 public class PokemonController {
 
-    PokemonService pokemonService = new PokemonService();
+    PokemonService pokemonService;
+
+    public PokemonController(PokemonService pokemonService) {
+        this.pokemonService = pokemonService;
+    }
+
     @Get
     public List<Pokemon> getPokemon() {
         return pokemonService.get();
