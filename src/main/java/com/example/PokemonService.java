@@ -23,4 +23,8 @@ public class PokemonService {
     public Pokemon getPokemonById(Integer pokemonId){
         return this.pokemonRepository.getPokemonById(pokemonId);
     }
+
+    public Pokemon updatePokemonById(Integer pokemonId, Pokemon pokemon) {
+        return this.pokemonRepository.updatePokemonById(pokemonId,pokemon);
+    }
 }

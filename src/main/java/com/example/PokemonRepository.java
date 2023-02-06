@@ -28,4 +28,13 @@ public class PokemonRepository {
     public Pokemon getPokemonById(Integer pokemonId) {
         return this.store.stream().filter(pokemon -> pokemon.getId().equals(pokemonId)).findFirst().orElse(null);
     }
+
+    public Pokemon updatePokemonById(Integer pokemonId, Pokemon pokemon) {
+        Pokemon foundPokemon=getPokemonById(pokemonId);
+        if (foundPokemon!=null){
+            foundPokemon.update(pokemon);
+        }
+        return foundPokemon;
+
+    }
 }

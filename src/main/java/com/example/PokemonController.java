@@ -26,5 +26,9 @@ public class PokemonController {
 
     }
 
+    @Put("/{pokemonId}")
+    public Pokemon putPokemonById(@Body Pokemon pokemon,@QueryValue Integer pokemonId){
+        return this.pokemonService.updatePokemonById(pokemonId,pokemon);
+    }
 
 }
