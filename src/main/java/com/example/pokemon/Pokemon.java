@@ -1,4 +1,4 @@
-package com.example;
+package com.example.pokemon;
 
 public class Pokemon {
     private Integer id;
@@ -50,7 +50,7 @@ public class Pokemon {
         this.speciality = speciality;
     }
 
-    public void update(Pokemon pokemon){
+  public void update(Pokemon pokemon) {
         if(pokemon.name!=null){
             this.name=pokemon.name;
         }
