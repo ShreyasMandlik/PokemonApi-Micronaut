@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name = "pokemon")
 public class Pokemon {
   @Id
-  @GeneratedValue()
+  @GeneratedValue
   private Integer id;
 
   private String name;
@@ -53,18 +53,6 @@ public class Pokemon {
 
   public void setSpeciality(String speciality) {
     this.speciality = speciality;
-  }
-
-  public void update(Pokemon pokemon) {
-    if (pokemon.name != null) {
-      this.name = pokemon.name;
-    }
-    if (pokemon.speciality != null) {
-      this.speciality = pokemon.speciality;
-    }
-    if (pokemon.imageUrl != null) {
-      this.imageUrl = pokemon.imageUrl;
-    }
   }
 
   @Override

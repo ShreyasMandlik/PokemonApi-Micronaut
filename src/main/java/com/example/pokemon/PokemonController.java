@@ -14,27 +14,27 @@ public class PokemonController {
   }
 
   @Get
-  public List<Pokemon> getPokemon() {
+  public List<Pokemon> getPokemon() throws PokemonValidateException {
     return pokemonService.get();
   }
 
   @Post
-  public Pokemon createPokemon(@Body Pokemon pokemon) {
+  public Pokemon createPokemon(@Body Pokemon pokemon) throws PokemonValidateException {
     return this.pokemonService.create(pokemon);
   }
 
-  //  @Get("/{pokemonId}")
-  //  public Pokemon getPokemonById(@PathVariable Integer pokemonId) {
-  //    return this.pokemonService.getPokemonById(pokemonId);
-  //  }
-  //
-  //  @Put("/{id}")
-  //  public Pokemon updatePokemonById(@PathVariable Integer id, @Body Pokemon pokemon) {
-  //    return pokemonService.updatePokemonById(id, pokemon);
-  //  }
-  //
-  //  @Delete("/{id}")
-  //  public boolean deletePokemonById(@PathVariable Integer id) {
-  //    return this.pokemonService.deletePokemonById(id);
-  //  }
+  @Get("/{id}")
+  public Pokemon getPokemonById(@PathVariable Integer id) throws PokemonValidateException {
+    return this.pokemonService.getPokemonById(id);
+  }
+
+  @Put
+  public Pokemon updatePokemonById(@Body Pokemon pokemon) throws PokemonValidateException {
+    return this.pokemonService.updatePokemonById(pokemon);
+  }
+
+  @Delete("/{id}")
+  public void deletePokemonById(@PathVariable Integer id) throws PokemonValidateException {
+    this.pokemonService.deletePokemonById(id);
+  }
 }
